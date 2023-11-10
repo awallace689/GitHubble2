@@ -1,0 +1,12 @@
+:root {
+  --backgroundColor: #476299;
+  --accentColor: #bdcfe1;
+  --accentTwoColor: #d3e8fd8a;
+  --contentColor: #fff9f2;
+  --bootstrapGray: rgba(0,0,0,.03);
+}
+
+html {
+  /*background-color: var(--backgroundColor);*/
+  font-family: Roboto, Menlo, Arial, Helvetica, sans-serif;
+}
