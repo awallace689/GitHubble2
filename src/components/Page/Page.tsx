@@ -1,19 +1,28 @@
-import { ReactNode } from 'react'
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
+import { ReactNode } from "react";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 
 type PageProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-function Page(props: PageProps) {
-  return (
-      <Container>
-        <Paper elevation={2} sx={{ p: 4, my: 4 }}>
-          {props.children}
-        </Paper>
-      </Container>
-  )
-}
+const Page = (props: PageProps) => (
+  <Container>
+    <Paper
+      elevation={2}
+      sx={(theme) => ({
+        my: 4,
+        [theme.breakpoints.up("md")]: {
+          p: 5,
+        },
+        [theme.breakpoints.down("md")]: {
+          p: 4,
+        },
+      })}
+    >
+      {props.children}
+    </Paper>
+  </Container>
+);
 
-export default Page
+export default Page;
