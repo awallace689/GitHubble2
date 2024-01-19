@@ -6,13 +6,14 @@ import { alpha } from "@mui/material";
 
 import Page from "../Page/Page";
 
+import { oauthUrl } from "../../secrets";
 import styles from "./SignIn.module.css";
 
 const SignIn = () => {
   return (
     <Page>
       <Container
-        disableGutters={true}
+        disableGutters
         component="main"
         sx={(theme) => ({
           backgroundColor: alpha(theme.palette.secondary.main, 0.5),
@@ -31,10 +32,8 @@ const SignIn = () => {
         </Typography>
         <Typography variant="h4" component="p">
           <MuiLink
-            href="https://www.github.com"
+            href={oauthUrl}
             underline="hover"
-            target="_blank"
-            rel="noreferrer"
             sx={{ fontWeight: 900 }}
           >
             Connect

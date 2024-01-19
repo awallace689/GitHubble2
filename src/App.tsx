@@ -1,14 +1,12 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 
 import CssBaseline from "@mui/material/CssBaseline";
-import getTheme from "./mui-theme";
 import { ThemeProvider, PaletteOptions } from "@mui/material/styles";
 
-import { Outlet } from "react-router-dom";
-
-import "./App.css";
+import getTheme from "./mui-theme";
 
 const App = () => {
   const [paletteMode, setPaletteMode] =
@@ -17,7 +15,7 @@ const App = () => {
   return (
     <ThemeProvider theme={getTheme(paletteMode)}>
       <CssBaseline />
-      <Navbar setPaletteMode={setPaletteMode} paletteMode={paletteMode}/>
+      <Navbar setPaletteMode={setPaletteMode} paletteMode={paletteMode} />
       <Outlet />
     </ThemeProvider>
   );
