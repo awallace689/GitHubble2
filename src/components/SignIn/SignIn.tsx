@@ -6,7 +6,6 @@ import { alpha } from "@mui/material";
 
 import Page from "../Page/Page";
 
-import { oauthUrl } from "../../secrets";
 import styles from "./SignIn.module.css";
 
 const SignIn = () => {
@@ -32,7 +31,7 @@ const SignIn = () => {
         </Typography>
         <Typography variant="h4" component="p">
           <MuiLink
-            href={oauthUrl}
+            href="https://github.com/login/oauth/authorize"
             underline="hover"
             sx={{ fontWeight: 900 }}
           >
