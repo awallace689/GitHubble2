@@ -7,10 +7,10 @@
 
     <ItemGroup>
         <Compile Include="Controllers\WeatherForecast.fs" />
-        <Compile Include="Program.fs"/>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.1"/>
     </ItemGroup>
 
@@ -19,7 +19,6 @@
         <Link>.dockerignore</Link>
       </Content>
       <Content Include="Dockerfile" />
-      <Content Include="app/**.*" />
     </ItemGroup>
 
     <ItemGroup>
@@ -85,6 +84,10 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\" />
+      <Compile Include="Authorization\Requirements\HasScopeRequirement.fs" />
+      <Compile Include="Authorization\Handlers\HasScopeHandler.fs" />
+      <Compile Include="Authorization\Handlers\Policies.fs" />
+      <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>

@@ -51,7 +51,7 @@ const SignIn = () => {
         </Typography>
       </Container>
       <Divider sx={{ my: 5 }} />
-      <Typography sx={{ fontStyle: "italic" }}>
+      <Typography component="i">
         Connecting will redirect you GitHub's secure sign-in page. Upon
         connecting, you will be able to access the rest of the website!
       </Typography>
