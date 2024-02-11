@@ -37,8 +37,7 @@ type public HasScopeHandler =
           fun c -> c.Type = "scope" && c.Issuer = requirement.Issuer)
 
       match hasScopeAndIssuer with
-      | true ->
-          HasScopeHandler.ValidateScopes(context, requirement)
+      | true -> HasScopeHandler.ValidateScopes(context, requirement)
       | false -> Task.CompletedTask
 
   new() = {}

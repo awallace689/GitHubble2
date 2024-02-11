@@ -38,9 +38,9 @@ const Navbar = (props: NavbarProps) => {
           p: 3,
           borderRadius: 0,
         }),
-        theme.palette.mode === "light" && ({
+        theme.palette.mode === "light" && {
           color: "secondary.contrastText",
-        }),
+        },
       ]}
     >
       <Link id={styles.logo} to={"/signin"}>
@@ -53,6 +53,7 @@ const Navbar = (props: NavbarProps) => {
           }}
         >
           <Box
+            data-testid="navbar-brand-logo"
             component="img"
             src={logo}
             sx={{
@@ -62,6 +63,7 @@ const Navbar = (props: NavbarProps) => {
             }}
           ></Box>
           <Typography
+            data-testid="navbar-brand-text"
             variant="h4"
             component="span"
             sx={{
