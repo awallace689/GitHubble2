@@ -1,11 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import App from "./App";
 import SignIn from "./components/SignIn/SignIn";
 import NotFound from "./components/NotFound/NotFound";
 
-const router = (
-  <BrowserRouter>
+const routes = (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<Navigate to="/signin" replace />} />
@@ -13,7 +12,6 @@ const router = (
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-  </BrowserRouter>
 );
 
-export default router;
+export default routes;
