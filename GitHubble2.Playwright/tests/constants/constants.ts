@@ -7,6 +7,10 @@ const pageUrl = (route: Pages | Pages[]) => {
   if (route instanceof Array) {
     return Pages.baseUrl + route.join("/");
   }
+  else if (route === Pages.baseUrl) {
+    return Pages.baseUrl;
+  }
+
   return Pages.baseUrl + "/" + route;
 };
 
