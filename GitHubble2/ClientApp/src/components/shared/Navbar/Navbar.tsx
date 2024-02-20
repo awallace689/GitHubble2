@@ -80,7 +80,7 @@ const Navbar = (props: NavbarProps) => {
           alignItems: "center",
         }}
       >
-        <Link id={styles.logo} to={"/signin"}>
+        <Link id={styles.logo} to={"/"}>
           <Box
             sx={{
               height: "100%",
@@ -112,7 +112,11 @@ const Navbar = (props: NavbarProps) => {
             </Typography>
           </Box>
         </Link>
-        <Switch defaultChecked={false} onChange={onPaletteModeChanged} />
+        <Switch
+          aria-label="dark mode"
+          defaultChecked={props.paletteMode == "dark"}
+          onChange={onPaletteModeChanged}
+        />
       </Box>
       {isLoading ? <CircularProgress /> : loginLogout}
     </AppBar>
