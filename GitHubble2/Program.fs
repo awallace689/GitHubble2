@@ -1,35 +1,25 @@
 namespace GitHubble2
+
 #nowarn "20"
 
-open System
-open System.Collections.Generic
-open System.IO
-open System.Linq
-open System.Threading.Tasks
 open GitHubble2.Authorization.Handlers
-open GitHubble2.Authorization.Requirements
-open Microsoft.AspNetCore
 open Microsoft.AspNetCore.Authorization
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open GitHubble2.Authorization.Policies
-open GitHubble2.Authorization.Handlers
 
 
 module Program =
     let exitCode = 0
 
-    let configureCors(origin : string) =
-        fun (options : CorsOptions) ->
+    let configureCors (origin: string) =
+        fun (options: CorsOptions) ->
             options.AddPolicy(
                 "AllowUIOrigin",
-                fun builder ->
-                    do builder
-                        .WithOrigins(origin)
-                        .AllowAnyHeader()
-                        .AllowAnyMethod())
+                fun builder -> do builder.WithOrigins(origin).AllowAnyHeader().AllowAnyMethod()
+            )
 
     [<EntryPoint>]
     let main args =
@@ -38,12 +28,13 @@ module Program =
         builder.Services.AddControllers()
 
         let origin = builder.Configuration.GetSection("UIOrigin").Value
-        builder.Services.AddCors(configureCors(origin))
+        builder.Services.AddCors(configureCors (origin))
 
         builder.Services.AddAuthentication().AddJwtBearer()
 
         builder.Services.AddAuthorization(fun options ->
-            do addWeatherPolicy(options, builder))
+            Policies
+            |> Set.iter (fun pol -> CreateScopeRequirement(pol, options, builder.Configuration)))
 
         do builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>()
 

@@ -1,0 +1,21 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "UIOrigin": "*",
+  "AllowedHosts": "*",
+  "Authentication": {
+    "Schemes": {
+      "Bearer": {
+        "Authority": "authority",
+        "ValidAudiences": [
+          "validaudience"
+        ],
+        "ValidIssuer": "validissuer"
+      }
+    }
+  }
+}

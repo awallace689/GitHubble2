@@ -4,9 +4,19 @@ open System
 open Microsoft.AspNetCore.Authorization
 
 type public HasScopeRequirement(scope: string, issuer: string) =
+    let _issuer =
+        if issuer <> null then
+            issuer
+        else
+            raise (ArgumentNullException(issuer))
+
+    let _scope =
+        if scope <> null then
+            scope
+        else
+            raise (ArgumentNullException(scope))
+
     interface IAuthorizationRequirement
 
-    member _.Issuer
-        with public get() = if issuer <> null then issuer else raise (ArgumentNullException(issuer))
-    member _.Scope
-        with public get() = if scope <> null then scope else raise (ArgumentNullException(scope))
+    member public _.Issuer = _issuer
+    member public _.Scope = _scope
