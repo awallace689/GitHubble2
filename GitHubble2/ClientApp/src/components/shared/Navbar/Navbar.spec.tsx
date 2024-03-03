@@ -58,7 +58,7 @@ describe("Navbar", () => {
     expect(screen.getByText(rootText)).toBeInTheDocument();
   });
 
-  it("brand redirects to root", async() => {
+  it("brand redirects to root", async () => {
     render(getNavbarRouter());
 
     const brand = await screen.findByTestId(brandTestId);

@@ -2,7 +2,7 @@ import MuiLink from "@mui/material/Link";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import styles from "./Auth0Connect.module.css";
-import Splash from "../../shared/Splash/Splash.component";
+import Splash from "../../shared/Splash/Splash";
 
 const Auth0Connect = () => {
   const {loginWithRedirect} = useAuth0();

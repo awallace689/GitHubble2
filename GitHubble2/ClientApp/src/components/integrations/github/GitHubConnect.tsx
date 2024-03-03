@@ -4,8 +4,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import MuiLink from "@mui/material/Link";
 
-import Splash from "../../shared/Splash/Splash.component";
-import SplashLoading from "../../shared/Splash/SplashLoading.component";
+import Splash from "../../shared/Splash/Splash";
+import SplashLoading from "../../shared/Splash/SplashLoading";
 
 const GitHubConnect = () => {
   const [search, setSearch] = useSearchParams();

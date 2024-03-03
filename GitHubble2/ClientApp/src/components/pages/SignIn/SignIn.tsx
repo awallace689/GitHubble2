@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import Page from "../../shared/Page/Page";
-import SplashLoading from "../../shared/Splash/SplashLoading.component";
+import SplashLoading from "../../shared/Splash/SplashLoading";
 import { routeNames } from "../../../routes";
 
 const SignIn = () => {
